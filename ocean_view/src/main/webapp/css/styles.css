@@ -1,0 +1,547 @@
+/* Ocean View Resort - Enhanced Ocean Theme CSS */
+
+/* ==================== COLOR VARIABLES ==================== */
+:root {
+    --ocean-primary: #0077BE;
+    --ocean-secondary: #00A8E8;
+    --ocean-accent: #FFB900;
+    --ocean-dark: #01579B;
+    --ocean-light: #E3F2FD;
+    --ocean-gradient-start: #E3F2FD;
+    --ocean-gradient-end: #BBDEFB;
+    --ocean-deep: #003D5C;
+    --white: #FFFFFF;
+    --shadow-light: rgba(0, 119, 190, 0.1);
+    --shadow-medium: rgba(0, 119, 190, 0.2);
+}
+
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, var(--ocean-gradient-start) 0%, var(--ocean-gradient-end) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==================== KEYFRAME ANIMATIONS ==================== */
+
+/* Swimming Fish Animation - Wavy Path */
+@keyframes swim {
+    0% {
+        transform: translateX(-100vw) translateY(0) scaleX(1);
+    }
+
+    25% {
+        transform: translateX(-50vw) translateY(-50px) scaleX(1);
+    }
+
+    50% {
+        transform: translateX(0) translateY(0) scaleX(1);
+    }
+
+    75% {
+        transform: translateX(50vw) translateY(-50px) scaleX(1);
+    }
+
+    100% {
+        transform: translateX(100vw) translateY(0) scaleX(1);
+    }
+}
+
+@keyframes swim-reverse {
+    0% {
+        transform: translateX(100vw) translateY(0) scaleX(-1);
+    }
+
+    25% {
+        transform: translateX(50vw) translateY(50px) scaleX(-1);
+    }
+
+    50% {
+        transform: translateX(0) translateY(0) scaleX(-1);
+    }
+
+    75% {
+        transform: translateX(-50vw) translateY(50px) scaleX(-1);
+    }
+
+    100% {
+        transform: translateX(-100vw) translateY(0) scaleX(-1);
+    }
+}
+
+/* Bubble Rise Animation */
+@keyframes bubble-rise {
+    0% {
+        transform: translateY(0) translateX(0) scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) translateX(100px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Enhanced Wave Animation */
+@keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Floating Animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide In from Left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* Ripple Effect */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ==================== ANIMATED BACKGROUNDS ==================== */
+
+/* Swimming Fish */
+.fish {
+    position: fixed;
+    font-size: 40px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.fish-1 {
+    top: 15%;
+    animation: swim 25s infinite linear;
+}
+
+.fish-2 {
+    top: 35%;
+    animation: swim-reverse 30s infinite linear;
+    animation-delay: 5s;
+    font-size: 30px;
+}
+
+.fish-3 {
+    top: 55%;
+    animation: swim 35s infinite linear;
+    animation-delay: 10s;
+    font-size: 35px;
+}
+
+.fish-4 {
+    top: 75%;
+    animation: swim-reverse 28s infinite linear;
+    animation-delay: 15s;
+    font-size: 28px;
+}
+
+/* Bubbles */
+.bubble {
+    position: fixed;
+    bottom: -100px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+    border-radius: 50%;
+    pointer-events: none;
+    animation: bubble-rise 15s infinite ease-in;
+    z-index: 1;
+}
+
+.bubble:nth-child(1) {
+    width: 20px;
+    height: 20px;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    width: 30px;
+    height: 30px;
+    left: 25%;
+    animation-delay: 2s;
+    animation-duration: 18s;
+}
+
+.bubble:nth-child(3) {
+    width: 15px;
+    height: 15px;
+    left: 40%;
+    animation-delay: 4s;
+    animation-duration: 16s;
+}
+
+.bubble:nth-child(4) {
+    width: 25px;
+    height: 25px;
+    left: 60%;
+    animation-delay: 6s;
+    animation-duration: 20s;
+}
+
+.bubble:nth-child(5) {
+    width: 18px;
+    height: 18px;
+    left: 75%;
+    animation-delay: 8s;
+    animation-duration: 17s;
+}
+
+.bubble:nth-child(6) {
+    width: 22px;
+    height: 22px;
+    left: 90%;
+    animation-delay: 10s;
+    animation-duration: 19s;
+}
+
+/* Wave SVG Container */
+.wave-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    /* Responsive height */
+    min-height: 150px;
+    z-index: 0;
+    display: none;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    /* Double width for seamless loop */
+    height: 100%;
+    animation: wave 20s infinite linear;
+    /* Slower, linear animation */
+}
+
+/* ==================== GLASSMORPHISM ==================== */
+.glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 119, 190, 0.2);
+}
+
+/* ==================== AUTH CONTAINER ==================== */
+.auth-container {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 119, 190, 0.3);
+    max-width: 450px;
+    margin: 5rem auto;
+    position: relative;
+    z-index: 10;
+    animation: float 6s ease-in-out infinite, fadeIn 0.8s ease-out;
+}
+
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--ocean-primary), var(--ocean-secondary), var(--ocean-accent));
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.auth-container:hover::before {
+    opacity: 1;
+}
+
+/* ==================== FORM INPUTS ==================== */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--ocean-light);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--ocean-primary);
+    box-shadow: 0 0 0 4px rgba(0, 119, 190, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ==================== BUTTONS ==================== */
+button,
+.btn {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 119, 190, 0.3);
+}
+
+button:active,
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Ripple Effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    animation: ripple 0.6s ease-out;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--ocean-dark) 0%, var(--ocean-deep) 100%);
+    color: white;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.nav-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: #B3E5FC;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-left-color: var(--ocean-accent);
+    padding-left: 2rem;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    background: var(--ocean-accent);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover::before {
+    width: 4px;
+    height: 100%;
+}
+
+/* ==================== CARDS ==================== */
+.card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px var(--shadow-light);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px var(--shadow-medium);
+}
+
+/* ==================== TABLES ==================== */
+table tr {
+    transition: all 0.3s ease;
+}
+
+table tr:hover {
+    background: var(--ocean-light);
+    transform: scale(1.01);
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+/* ==================== BADGES & STATUS ==================== */
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.badge.status-confirmed {
+    background: linear-gradient(135deg, #4CAF50, #66BB6A);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.badge.status-pending {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+    color: white;
+}
+
+.badge.status-cancelled {
+    background: linear-gradient(135deg, #F44336, #EF5350);
+    color: white;
+}
+
+/* ==================== LOADING SPINNER ==================== */
+.spinner {
+    border: 4px solid var(--ocean-light);
+    border-top: 4px solid var(--ocean-primary);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .auth-container {
+        margin: 2rem 1rem;
+        padding: 2rem;
+    }
+
+    .fish {
+        font-size: 24px;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+
+    .no-print,
+    .fish,
+    .bubble,
+    .wave-container {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+}
